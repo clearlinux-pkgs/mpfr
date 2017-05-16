@@ -4,7 +4,7 @@
 #
 Name     : mpfr
 Version  : 3.1.5
-Release  : 16
+Release  : 17
 URL      : http://mirrors.kernel.org/gnu/mpfr/mpfr-3.1.5.tar.bz2
 Source0  : http://mirrors.kernel.org/gnu/mpfr/mpfr-3.1.5.tar.bz2
 Summary  : No detailed summary available
