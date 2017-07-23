@@ -1,5 +1,5 @@
 PKG_NAME := mpfr
-URL := http://mirrors.kernel.org/gnu/mpfr/mpfr-3.1.5.tar.bz2
-ARCHIVES :=
+URL := https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.5.tar.xz
+
 
 include ../common/Makefile.common
