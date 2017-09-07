@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x980C197698C3739D (vincent@vinc17.net)
 #
 Name     : mpfr
-Version  : 3.1.5
-Release  : 18
-URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.5.tar.xz
-Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.5.tar.xz
-Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.5.tar.xz.sig
+Version  : 3.1.6
+Release  : 19
+URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz
+Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz
+Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+ LGPL-3.0 LGPL-3.0+
@@ -49,21 +49,21 @@ lib components for the mpfr package.
 
 
 %prep
-%setup -q -n mpfr-3.1.5
+%setup -q -n mpfr-3.1.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1500818673
+export SOURCE_DATE_EPOCH=1504798835
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition "
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -75,7 +75,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1500818673
+export SOURCE_DATE_EPOCH=1504798835
 rm -rf %{buildroot}
 %make_install
 
@@ -95,4 +95,4 @@ rm -rf %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmpfr.so.4
-/usr/lib64/libmpfr.so.4.1.5
+/usr/lib64/libmpfr.so.4.1.6
