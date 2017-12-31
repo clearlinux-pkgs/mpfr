@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x980C197698C3739D (vincent@vinc17.net)
 #
 Name     : mpfr
-Version  : 4.0.0
-Release  : 20
-URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz
-Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz
-Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz.sig
-Summary  : C library for multiple-precision floating-point computations
+Version  : 3.1.6
+Release  : 21
+URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz
+Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz
+Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+ LGPL-3.0 LGPL-3.0+
 Requires: mpfr-lib
@@ -49,14 +49,14 @@ lib components for the mpfr package.
 
 
 %prep
-%setup -q -n mpfr-4.0.0
+%setup -q -n mpfr-3.1.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1514216322
+export SOURCE_DATE_EPOCH=1514694738
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -75,7 +75,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1514216322
+export SOURCE_DATE_EPOCH=1514694738
 rm -rf %{buildroot}
 %make_install
 
@@ -86,7 +86,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/include/*.h
 /usr/lib64/libmpfr.so
-/usr/lib64/pkgconfig/mpfr.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -95,5 +94,5 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libmpfr.so.6
-/usr/lib64/libmpfr.so.6.0.0
+/usr/lib64/libmpfr.so.4
+/usr/lib64/libmpfr.so.4.1.6
