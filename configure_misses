@@ -3,7 +3,9 @@ Configure miss: sys/fpu.h usability
 Configure miss: sys/fpu.h presence
 Configure miss: sys/fpu.h
 Configure miss: union fpc_csr
+Configure miss: ISO C11 thread support
 Configure miss: gcc float-conversion bug
 Configure miss: if the FP division by 0 fails
 Configure miss: if NAN == NAN
+Configure miss: _mulx_u64
 Configure miss: double-to-integer conversion bug
