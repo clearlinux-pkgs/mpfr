@@ -6,7 +6,7 @@
 #
 Name     : mpfr
 Version  : 4.0.0
-Release  : 22
+Release  : 23
 URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz
 Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz
 Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz.sig
