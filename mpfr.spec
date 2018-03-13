@@ -6,10 +6,10 @@
 #
 Name     : mpfr
 Version  : 4.0.1
-Release  : 24
-URL      : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz
-Source0  : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz
-Source99 : https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz.sig
+Release  : 25
+URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.1.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.1.tar.xz
+Source99 : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.1.tar.xz.sig
 Summary  : C library for multiple-precision floating-point computations
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+ LGPL-3.0 LGPL-3.0+
@@ -56,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1518037199
+export SOURCE_DATE_EPOCH=1520913461
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -75,7 +75,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1518037199
+export SOURCE_DATE_EPOCH=1520913461
 rm -rf %{buildroot}
 %make_install
 
