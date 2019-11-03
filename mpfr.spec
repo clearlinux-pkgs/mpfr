@@ -6,7 +6,7 @@
 #
 Name     : mpfr
 Version  : 4.0.2
-Release  : 27
+Release  : 28
 URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz.sig
