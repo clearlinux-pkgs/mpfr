@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x980C197698C3739D (vincent@vinc17.net)
 #
 Name     : mpfr
-Version  : 4.0.2
-Release  : 29
-URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz
-Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz
-Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.0.2.tar.xz.sig
+Version  : 4.1.0
+Release  : 30
+URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
+Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz.sig
 Summary  : C library for multiple-precision floating-point computations
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+ LGPL-3.0 LGPL-3.0+
@@ -69,10 +69,10 @@ license components for the mpfr package.
 
 
 %prep
-%setup -q -n mpfr-4.0.2
-cd %{_builddir}/mpfr-4.0.2
+%setup -q -n mpfr-4.1.0
+cd %{_builddir}/mpfr-4.1.0
 pushd ..
-cp -a mpfr-4.0.2 buildavx2
+cp -a mpfr-4.1.0 buildavx2
 popd
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1595289424
+export SOURCE_DATE_EPOCH=1597767335
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -107,16 +107,16 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 cd ../buildavx2;
-make VERBOSE=1 V=1 %{?_smp_mflags} check || :
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1595289424
+export SOURCE_DATE_EPOCH=1597767335
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mpfr
-cp %{_builddir}/mpfr-4.0.2/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615
-cp %{_builddir}/mpfr-4.0.2/COPYING.LESSER %{buildroot}/usr/share/package-licenses/mpfr/a8a12e6867d7ee39c21d9b11a984066099b6fb6b
+cp %{_builddir}/mpfr-4.1.0/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615
+cp %{_builddir}/mpfr-4.1.0/COPYING.LESSER %{buildroot}/usr/share/package-licenses/mpfr/a8a12e6867d7ee39c21d9b11a984066099b6fb6b
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -144,9 +144,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/haswell/libmpfr.so.6
-/usr/lib64/haswell/libmpfr.so.6.0.2
+/usr/lib64/haswell/libmpfr.so.6.1.0
 /usr/lib64/libmpfr.so.6
-/usr/lib64/libmpfr.so.6.0.2
+/usr/lib64/libmpfr.so.6.1.0
 
 %files license
 %defattr(0644,root,root,0755)
