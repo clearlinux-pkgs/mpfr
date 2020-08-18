@@ -6,7 +6,7 @@
 #
 Name     : mpfr
 Version  : 4.1.0
-Release  : 30
+Release  : 31
 URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz.sig
@@ -74,13 +74,16 @@ cd %{_builddir}/mpfr-4.1.0
 pushd ..
 cp -a mpfr-4.1.0 buildavx2
 popd
+pushd ..
+cp -a mpfr-4.1.0 buildavx512
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597767335
+export SOURCE_DATE_EPOCH=1597767779
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -102,6 +105,16 @@ export LDFLAGS="$LDFLAGS -m64 -march=haswell"
 %configure --disable-static
 make  %{?_smp_mflags}
 popd
+unset PKG_CONFIG_PATH
+pushd ../buildavx512/
+export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export FFLAGS="$FFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export FCFLAGS="$FCFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
+export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
+%configure --disable-static
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
@@ -110,13 +123,18 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 cd ../buildavx2;
 make %{?_smp_mflags} check || :
+cd ../buildavx512;
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1597767335
+export SOURCE_DATE_EPOCH=1597767779
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mpfr
 cp %{_builddir}/mpfr-4.1.0/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615
 cp %{_builddir}/mpfr-4.1.0/COPYING.LESSER %{buildroot}/usr/share/package-licenses/mpfr/a8a12e6867d7ee39c21d9b11a984066099b6fb6b
+pushd ../buildavx512/
+%make_install_avx512
+popd
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -129,6 +147,7 @@ popd
 %defattr(-,root,root,-)
 /usr/include/mpf2mpfr.h
 /usr/include/mpfr.h
+/usr/lib64/haswell/avx512_1/libmpfr.so
 /usr/lib64/haswell/libmpfr.so
 /usr/lib64/libmpfr.so
 /usr/lib64/pkgconfig/mpfr.pc
@@ -143,6 +162,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/haswell/avx512_1/libmpfr.so.6
+/usr/lib64/haswell/avx512_1/libmpfr.so.6.1.0
 /usr/lib64/haswell/libmpfr.so.6
 /usr/lib64/haswell/libmpfr.so.6.1.0
 /usr/lib64/libmpfr.so.6

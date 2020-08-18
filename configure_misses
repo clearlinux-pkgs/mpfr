@@ -17,3 +17,12 @@ Configure miss: gcc float-conversion bug
 Configure miss: if the FP division by 0 fails
 Configure miss: if NAN == NAN
 Configure miss: double-to-integer conversion bug
+Configure miss: non-MS-Windows ICC
+Configure miss: sys/fpu.h usability
+Configure miss: sys/fpu.h presence
+Configure miss: sys/fpu.h
+Configure miss: union fpc_csr
+Configure miss: gcc float-conversion bug
+Configure miss: if the FP division by 0 fails
+Configure miss: if NAN == NAN
+Configure miss: double-to-integer conversion bug
