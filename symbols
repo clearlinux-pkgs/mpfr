@@ -1,5 +1,4 @@
 libmpfr.so.6:__bid128_add
-libmpfr.so.6:__bid128_div
 libmpfr.so.6:__bid128_fma
 libmpfr.so.6:__bid128_from_int32
 libmpfr.so.6:__bid128_from_int64
@@ -9,19 +8,16 @@ libmpfr.so.6:__bid128_mul
 libmpfr.so.6:__bid128_sub
 libmpfr.so.6:__bid128_to_bid64
 libmpfr.so.6:__bid128dd_add
-libmpfr.so.6:__bid128dd_div
 libmpfr.so.6:__bid128dd_mul
 libmpfr.so.6:__bid128dd_sub
 libmpfr.so.6:__bid128ddd_fma
 libmpfr.so.6:__bid128ddq_fma
 libmpfr.so.6:__bid128dq_add
-libmpfr.so.6:__bid128dq_div
 libmpfr.so.6:__bid128dq_mul
 libmpfr.so.6:__bid128dq_sub
 libmpfr.so.6:__bid128dqd_fma
 libmpfr.so.6:__bid128dqq_fma
 libmpfr.so.6:__bid128qd_add
-libmpfr.so.6:__bid128qd_div
 libmpfr.so.6:__bid128qd_mul
 libmpfr.so.6:__bid128qd_sub
 libmpfr.so.6:__bid128qdd_fma
@@ -49,7 +45,6 @@ libmpfr.so.6:__bid64qq_sub
 libmpfr.so.6:__bid64qqd_fma
 libmpfr.so.6:__bid64qqq_fma
 libmpfr.so.6:__bid_addtd3
-libmpfr.so.6:__bid_divtd3
 libmpfr.so.6:__bid_floatsitd
 libmpfr.so.6:__bid_multd3
 libmpfr.so.6:__bid_round128_19_38
