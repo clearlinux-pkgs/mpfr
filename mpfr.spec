@@ -6,7 +6,7 @@
 #
 Name     : mpfr
 Version  : 4.1.0
-Release  : 40
+Release  : 41
 URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz
 Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.1.0.tar.xz.sig
@@ -83,15 +83,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656380310
+export SOURCE_DATE_EPOCH=1667433143
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -107,10 +107,10 @@ make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
 pushd ../buildavx512/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256 -Wl,-z,x86-64-v4"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256 -Wl,-z,x86-64-v4"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=256"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512 -Wl,-z,x86-64-v4 -mtune=sapphirerapids "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512 -Wl,-z,x86-64-v4 -mtune=sapphirerapids "
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v4 -mprefer-vector-width=512"
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v4"
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -127,11 +127,11 @@ cd ../buildavx512;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1656380310
+export SOURCE_DATE_EPOCH=1667433143
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mpfr
-cp %{_builddir}/mpfr-4.1.0/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615
-cp %{_builddir}/mpfr-4.1.0/COPYING.LESSER %{buildroot}/usr/share/package-licenses/mpfr/a8a12e6867d7ee39c21d9b11a984066099b6fb6b
+cp %{_builddir}/mpfr-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615 || :
+cp %{_builddir}/mpfr-%{version}/COPYING.LESSER %{buildroot}/usr/share/package-licenses/mpfr/a8a12e6867d7ee39c21d9b11a984066099b6fb6b || :
 pushd ../buildavx2/
 %make_install_v3
 popd
