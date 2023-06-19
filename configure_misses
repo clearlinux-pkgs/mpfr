@@ -1,15 +1,22 @@
 Configure miss: _mulx_u64
 Configure miss: double-to-integer conversion bug
 Configure miss: double-to-integer conversion bug
+Configure miss: double-to-integer conversion bug
+Configure miss: gcc float-conversion bug
 Configure miss: gcc float-conversion bug
 Configure miss: gcc float-conversion bug
 Configure miss: if the FP division by 0 fails
 Configure miss: if the FP division by 0 fails
+Configure miss: if the FP division by 0 fails
+Configure miss: non-MS-Windows ICC
 Configure miss: non-MS-Windows ICC
 Configure miss: non-MS-Windows ICC
 Configure miss: sys/fpu.h
 Configure miss: sys/fpu.h
+Configure miss: sys/fpu.h
 Configure miss: union fpc_csr
 Configure miss: union fpc_csr
+Configure miss: union fpc_csr
+Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
