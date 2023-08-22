@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x5831D11A0D4DB02A (vincent@vinc17.net)
 #
 Name     : mpfr
-Version  : 4.2.0
-Release  : 45
-URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.0.tar.xz
-Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.0.tar.xz
-Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.0.tar.xz.sig
+Version  : 4.2.1
+Release  : 46
+URL      : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.1.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.1.tar.xz
+Source1  : https://mirrors.kernel.org/gnu/mpfr/mpfr-4.2.1.tar.xz.sig
 Summary  : C library for multiple-precision floating-point computations
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-3.0 GPL-3.0+ LGPL-3.0 LGPL-3.0+
@@ -74,13 +74,13 @@ license components for the mpfr package.
 
 
 %prep
-%setup -q -n mpfr-4.2.0
-cd %{_builddir}/mpfr-4.2.0
+%setup -q -n mpfr-4.2.1
+cd %{_builddir}/mpfr-4.2.1
 pushd ..
-cp -a mpfr-4.2.0 buildavx2
+cp -a mpfr-4.2.1 buildavx2
 popd
 pushd ..
-cp -a mpfr-4.2.0 buildavx512
+cp -a mpfr-4.2.1 buildavx512
 popd
 
 %build
@@ -88,7 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692054807
+export SOURCE_DATE_EPOCH=1692720108
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -132,7 +132,7 @@ cd ../buildavx512;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1692054807
+export SOURCE_DATE_EPOCH=1692720108
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mpfr
 cp %{_builddir}/mpfr-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mpfr/31a3d460bb3c7d98845187c716a30db81c44b615 || :
@@ -167,10 +167,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmpfr.so.6.2.0
-/V4/usr/lib64/libmpfr.so.6.2.0
+/V3/usr/lib64/libmpfr.so.6.2.1
+/V4/usr/lib64/libmpfr.so.6.2.1
 /usr/lib64/libmpfr.so.6
-/usr/lib64/libmpfr.so.6.2.0
+/usr/lib64/libmpfr.so.6.2.1
 
 %files license
 %defattr(0644,root,root,0755)
